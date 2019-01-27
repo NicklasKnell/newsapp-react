@@ -13,4 +13,13 @@ body * {
     display: block;
     box-sizing: border-box;
     text-decoration: none;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+    color: inherit;
 }

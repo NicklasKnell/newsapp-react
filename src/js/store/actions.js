@@ -1,0 +1,2 @@
+export const ADD_FAVOURITE = 'ADD_FAVOURITE';
+export const FETCH_ARTICLES = 'FETCH_ARTICLES';

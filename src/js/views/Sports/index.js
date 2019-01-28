@@ -1,9 +1,9 @@
 import React from 'react';
 
-class ArticleDetail extends React.Component {
+class Sports extends React.Component {
     render() {
         return <div />;
     }
 }
 
-export default ArticleDetail;
+export default Sports;

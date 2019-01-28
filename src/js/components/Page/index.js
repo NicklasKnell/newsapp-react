@@ -31,7 +31,7 @@ const Page = props => {
 };
 
 Page.propTypes = {
-    articles: PropTypes.arrayOf(ARTICLE_SHAPE).isRequired
+    articles: PropTypes.arrayOf(PropTypes.shape(ARTICLE_SHAPE)).isRequired
 };
 
 export default Page;

@@ -8,8 +8,7 @@ import RouterComponent from './js/components/Router';
 
 const StApp = styled.div`
     margin-left: ${NAVIGATION_WIDTH}px;
-    background-color: #404040;
-    min-height: 100%;
+    height: 100%;
 `;
 
 class App extends Component {

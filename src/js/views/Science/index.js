@@ -1,8 +1,29 @@
 import React from 'react';
+import Page from '../../components/Page';
+
+import { fetchArticles, SCIENCE_REQUEST } from '../../shared/utils/articleRequests';
 
 class Science extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { articles: [], loading: false };
+    }
+
+    componentDidMount() {
+        this.setState({ loading: true });
+        fetchArticles(SCIENCE_REQUEST)
+            .then(data => {
+                this.setState({ articles: data, loading: false });
+            })
+            .catch(error => {
+                this.setState({ loading: false });
+                console.log(error);
+            });
+    }
+
     render() {
-        return <div />;
+        return <Page articles={this.state.articles} />;
     }
 }
 

@@ -5,7 +5,7 @@ import { ARTICLE_SHAPE } from '../../shared/utils/article';
 import ArticleTile from '../ArticleTile';
 
 const StPage = styled.div`
-    background-color: #373a49;
+    background-color: #ffffff;
 `;
 
 const StArticles = styled.div`

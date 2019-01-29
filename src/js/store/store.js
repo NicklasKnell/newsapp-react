@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
-import * as reducers from './reducers';
+import { toggleTheme } from './reducers';
 
-export const store = createStore((state, action) => console.log('test'));
+export const store = createStore(toggleTheme);

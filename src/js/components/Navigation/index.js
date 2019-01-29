@@ -21,14 +21,13 @@ const StLink = styled(Link)`
 `;
 
 const Navigation = () => {
-    const { HOME_ROUTE, SPORTS_ROUTE, SCIENCE_ROUTE, FAVOURITES_ROUTE } = routes;
+    const { HOME_ROUTE, SPORTS_ROUTE, SCIENCE_ROUTE } = routes;
 
     return (
         <StNavigation>
             <StLink to={HOME_ROUTE}>HOME</StLink>
             <StLink to={SPORTS_ROUTE}>SPORTS</StLink>
             <StLink to={SCIENCE_ROUTE}>SCIENCE</StLink>
-            <StLink to={FAVOURITES_ROUTE}>FAVOURITES</StLink>
         </StNavigation>
     );
 };

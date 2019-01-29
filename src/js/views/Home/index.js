@@ -1,9 +1,8 @@
 import React from 'react';
 import Page from '../../components/Page';
+import { HOME_REQUEST, fetchArticles } from '../../shared/utils/articleRequests';
 
-import { fetchArticles, SPORTS_REQUEST } from '../../shared/utils/articleRequests';
-
-class Sports extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,9 +11,9 @@ class Sports extends React.Component {
 
     componentDidMount() {
         this.setState({ loading: true });
-        fetchArticles(SPORTS_REQUEST)
+        fetchArticles(HOME_REQUEST)
             .then(data => {
-                this.setState({ articles: [data], loading: false });
+                this.setState({ articles: data, loading: false });
             })
             .catch(error => {
                 this.setState({ loading: false });
@@ -27,4 +26,4 @@ class Sports extends React.Component {
     }
 }
 
-export default Sports;
+export default Home;

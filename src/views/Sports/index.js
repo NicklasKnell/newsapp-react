@@ -14,7 +14,7 @@ class Sports extends React.Component {
         this.setState({ loading: true });
         fetchArticles(SPORTS_REQUEST)
             .then(data => {
-                this.setState({ articles: [data], loading: false });
+                this.setState({ articles: data, loading: false });
             })
             .catch(error => {
                 this.setState({ loading: false });

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import styled from 'styled-components';
 
-import { store } from './js/store/store';
-import Navigation, { NAVIGATION_WIDTH } from './js/components/Navigation';
-import RouterComponent from './js/components/Router';
+import { store } from './store/store';
+import Navigation, { NAVIGATION_WIDTH } from './components/Navigation';
+import RouterComponent from './components/Router';
 
 const StApp = styled.div`
     margin-left: ${NAVIGATION_WIDTH}px;

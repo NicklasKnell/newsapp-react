@@ -26,3 +26,10 @@ export function fetchArticles(articleType) {
         return response.data;
     });
 }
+
+export function fetchArticle(articleId) {
+    const requestUrl = `../api/article/${articleId}`;
+    return axios.get(requestUrl).then(response => {
+        return response.data;
+    });
+}

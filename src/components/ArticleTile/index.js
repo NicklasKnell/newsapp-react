@@ -1,49 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { ARTICLE_SHAPE } from '../../shared/utils/article';
+import { ARTICLE_SHAPE, StArticle } from '../../shared/utils/article';
 import { Link } from '@reach/router';
-
-const StArticle = styled.div`
-    background-color: #ffffff;
-    color: #111111;
-    padding: 20px 30px;
-    border: solid 1px #d4d800;
-`;
-
-const StMetadata = styled.div`
-    margin-top: 50px;
-    display: flex;
-    justify-content: flex-end;
-`;
+import ArticleMetadata from '../ArticleMetadata';
 
 const StLink = styled(Link)`
-    font-size: 30px;
+    font-size: 45px;
     &:hover {
-        color: #090e28;
+        color: ${props => props.theme.ARTICLE_TITLE_HOVER};
     }
 `;
 
 const StButton = styled(Link)`
-    width: 200px;
-    height: 30px;
-    margin-top: 40px;
-    font-size: 16px;
-    color: #111111;
-    background-color: #d4d800;
     display: inline-flex;
+    width: 250px;
+    margin-top: 40px;
+    font-size: 25px;
     align-items: center;
     justify-content: center;
 
-    &:hover {
-        border: solid 1px #111111;
-        background-color: white;
-    }
-`;
+    background-color: ${props => props.theme.ARTICLE_BUTTON_BG};
+    color: ${props => props.theme.ARTICLE_BUTTON_COLOR};
+    border: solid 1px ${props => props.theme.ARTICLE_BUTTON_BORDER};
 
-const StSeparator = styled.span`
-    width: 20px;
-    text-align: center;
+    &:hover {
+        background-color: ${props => props.theme.ARTICLE_BUTTON_BG_HOVER};
+        color: ${props => props.theme.ARTICLE_BUTTON_COLOR_HOVER};
+        border: solid 1px ${props => props.theme.ARTICLE_BUTTON_BORDER_HOVER};
+    }
 `;
 
 const ArticleTile = props => {
@@ -51,21 +36,12 @@ const ArticleTile = props => {
 
     const articleLink = `/article/${id}`;
 
-    const separator = !(author && releaseDate) ? null : <StSeparator>|</StSeparator>;
-
-    const authorField = !author ? null : <span>{author}</span>;
-    const releaseDateField = !releaseDate ? null : <span>{releaseDate}</span>;
-
     return (
         <StArticle className={className}>
             <StLink to={articleLink}>{title}</StLink>
             <p>{content}</p>
             <StButton to={articleLink}>More</StButton>
-            <StMetadata>
-                {authorField}
-                {separator}
-                {releaseDateField}
-            </StMetadata>
+            <ArticleMetadata author={author} releaseDate={releaseDate} />
         </StArticle>
     );
 };

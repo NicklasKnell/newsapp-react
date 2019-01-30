@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
 
-import { store } from './store/store';
 import Navigation, { NAVIGATION_WIDTH } from './components/Navigation';
 import RouterComponent from './components/Router';
 
 const StApp = styled.div`
     margin-left: ${NAVIGATION_WIDTH}px;
-    height: 100%;
+    min-height: 100%;
+    background-color: ${props => props.theme.PAGE_BG};
 `;
 
 class App extends Component {
     render() {
         return (
-            <Provider store={store}>
+            <ThemeProvider theme={this.props.theme}>
                 <StApp>
                     <Navigation />
                     <RouterComponent />
                 </StApp>
-            </Provider>
+            </ThemeProvider>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    theme: state.theme
+});
+
+export default connect(mapStateToProps)(App);

@@ -7,17 +7,15 @@ class Science extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { articles: [], loading: false };
+        this.state = { articles: [] };
     }
 
     componentDidMount() {
-        this.setState({ loading: true });
         fetchArticles(SCIENCE_REQUEST)
             .then(data => {
-                this.setState({ articles: data, loading: false });
+                this.setState({ articles: data });
             })
             .catch(error => {
-                this.setState({ loading: false });
                 console.log(error);
             });
     }

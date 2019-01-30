@@ -4,10 +4,6 @@ import styled from 'styled-components';
 import { ARTICLE_SHAPE } from '../../shared/utils/article';
 import ArticleTile from '../ArticleTile';
 
-const StPage = styled.div`
-    background-color: #ffffff;
-`;
-
 const StArticles = styled.div`
     padding: 50px;
     margin: auto;
@@ -23,11 +19,7 @@ const Page = props => {
         return <StArticleTile {...article} key={article.id} />;
     });
 
-    return (
-        <StPage>
-            <StArticles>{articleTiles}</StArticles>
-        </StPage>
-    );
+    return <StArticles>{articleTiles}</StArticles>;
 };
 
 Page.propTypes = {

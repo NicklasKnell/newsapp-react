@@ -16,34 +16,25 @@ const StNavigation = styled.div`
     left: 0px;
     background-color: ${props => props.theme.NAVIGATION_BG};
     color: ${props => props.theme.NAVIGATION_COLOR};
-`;
 
-const navItemStyle = {
-    height: NAVIGATION_WIDTH,
-    width: '100%',
-    'margin-bottom': '20px',
-    display: 'inline-flex',
-    'align-items': 'center',
-    'justify-content': 'center'
-};
+    a,
+    .button {
+        height: ${NAVIGATION_WIDTH}px;
+        width: 100%;
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-const StLink = styled(Link)`
-    ${() => {
-        return { ...navItemStyle };
-    }}
-
-    &:hover {
-        color: ${props => props.theme.NAVIGATION_COLOR_HOVER};
+        &:hover,
+        &.active {
+            color: ${props => props.theme.NAVIGATION_COLOR_HOVER};
+        }
     }
-`;
 
-const StThemePopupButton = styled.a`
-    ${() => {
-        return { ...navItemStyle };
-    }}
-
-    &:hover {
+    .button:hover {
         cursor: pointer;
+        color: ${props => props.theme.NAVIGATION_COLOR};
     }
 `;
 
@@ -66,6 +57,10 @@ const StThemeButton = styled.div`
     padding: 0 10px;
 `;
 
+const isActive = ({ isCurrent }) => {
+    return isCurrent ? { className: 'active' } : null;
+};
+
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
@@ -87,21 +82,22 @@ class Navigation extends React.Component {
 
         return (
             <StNavigation>
-                <StLink to={HOME_ROUTE}>
+                <Link to={HOME_ROUTE} getProps={isActive}>
                     <StIcon className="material-icons">home</StIcon>
-                </StLink>
-                <StLink to={SPORTS_ROUTE}>
+                </Link>
+                <Link to={SPORTS_ROUTE} getProps={isActive}>
                     <StIcon className="material-icons">fitness_center</StIcon>
-                </StLink>
-                <StLink to={SCIENCE_ROUTE}>
+                </Link>
+                <Link to={SCIENCE_ROUTE} getProps={isActive}>
                     <StIcon className="material-icons">find_in_page</StIcon>
-                </StLink>
-                <StThemePopupButton
+                </Link>
+                <div
+                    className="button"
                     onClick={() => this.setState({ showThemeSelection: !this.state.showThemeSelection })}
                 >
                     <StIcon className="material-icons">color_lens</StIcon>
                     {popup}
-                </StThemePopupButton>
+                </div>
             </StNavigation>
         );
     }

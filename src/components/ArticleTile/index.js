@@ -17,17 +17,20 @@ const StButton = styled(Link)`
     width: 250px;
     margin-top: 40px;
     font-size: 25px;
+    font-weight: 400;
     align-items: center;
     justify-content: center;
 
-    background-color: ${props => props.theme.ARTICLE_BUTTON_BG};
-    color: ${props => props.theme.ARTICLE_BUTTON_COLOR};
-    border: solid 1px ${props => props.theme.ARTICLE_BUTTON_BORDER};
+    && {
+        background-color: ${props => props.theme.ARTICLE_BUTTON_BG};
+        color: ${props => props.theme.ARTICLE_BUTTON_COLOR};
+        border: solid 2px ${props => props.theme.ARTICLE_BUTTON_BORDER};
 
-    &:hover {
-        background-color: ${props => props.theme.ARTICLE_BUTTON_BG_HOVER};
-        color: ${props => props.theme.ARTICLE_BUTTON_COLOR_HOVER};
-        border: solid 1px ${props => props.theme.ARTICLE_BUTTON_BORDER_HOVER};
+        &:hover {
+            background-color: ${props => props.theme.ARTICLE_BUTTON_BG_HOVER};
+            color: ${props => props.theme.ARTICLE_BUTTON_COLOR_HOVER};
+            border-color: ${props => props.theme.ARTICLE_BUTTON_BORDER_HOVER};
+        }
     }
 `;
 

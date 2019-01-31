@@ -11,6 +11,10 @@ const StWrapper = styled.div`
     width: 70%;
 `;
 
+const StTitle = styled.h1`
+    font-weight: 300;
+`;
+
 class ArticleDetail extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +37,7 @@ class ArticleDetail extends React.Component {
 
         const articleComponent = !article ? null : (
             <StArticle>
-                <h1>{article.title}</h1>
+                <StTitle>{article.title}</StTitle>
                 <p>{article.content}</p>
                 <ArticleMetadata author={article.author} releaseDate={article.releaseDate} />
             </StArticle>
